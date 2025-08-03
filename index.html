@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis: Praktik Komputasi dan Arsitektur Mesin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-box {
+            border: 2px solid #9B5DE5;
+            transition: all 0.3s ease;
+        }
+        .flow-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(155, 93, 229, 0.5);
+        }
+        .chart-legend-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div class="container mx-auto max-w-7xl px-4 py-8 md:px-8 md:py-12">
+
+        <header class="text-center mb-12 md:mb-20">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4" style="color: #00F5D4;">Infografis: Komputasi Manual hingga Otak Mesin</h1>
+            <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto text-gray-400">Ikhtisar visual tentang praktik komputasi, algoritma, struktur data, dan arsitektur dasar komputer.</p>
+        </header>
+
+        <main>
+            <section id="data-quality" class="mb-16 md:mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style="color: #FEE440;">Bagian 1: Praktik Komputasi dan Kualitas Data</h2>
+                    <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">Fondasi komputasi dimulai dengan pemahaman cara mengumpulkan dan mengolah data, bahkan secara manual. Memastikan data berkualitas adalah langkah krusial sebelum beralih ke otomatisasi.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl sm:text-6xl mb-4 text-[#F15BB5]">🎯</div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2" style="color: #00F5D4;">Akurasi</h3>
+                        <p class="text-sm text-gray-400">Data harus mencerminkan keadaan yang sebenarnya, tanpa kesalahan penulisan atau salah rekapitulasi.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl sm:text-6xl mb-4 text-[#F15BB5]">🔗</div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2" style="color: #00F5D4;">Relevansi</h3>
+                        <p class="text-sm text-gray-400">Data harus sesuai dan berguna untuk tujuan yang telah ditetapkan, tidak ada data yang tidak relevan.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300">
+                        <div class="text-5xl sm:text-6xl mb-4 text-[#F15BB5]">💯</div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2" style="color: #00F5D4;">Kelengkapan</h3>
+                        <p class="text-sm text-gray-400">Semua data yang dibutuhkan harus terisi secara penuh, tanpa adanya data yang hilang atau kosong.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 text-center" style="color: #FEE440;">Dampak Standardisasi Data</h3>
+                    <p class="text-sm sm:text-base text-gray-400 text-center mb-6 max-w-3xl mx-auto">Grafik ini membandingkan hasil survei warna favorit sebelum dan sesudah data dibersihkan dan distandarisasi. Tanpa standardisasi, data bisa kacau akibat kesalahan penulisan seperti "Bhiru" dan "Merh". Setelah standardisasi, data menjadi lebih akurat dan terfokus.</p>
+                    <div class="chart-container h-64 sm:h-80 md:h-96">
+                        <canvas id="dataQualityChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="algorithms" class="mb-16 md:mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style="color: #F15BB5;">Bagian 2: Algoritma dan Struktur Data</h2>
+                    <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">Algoritma adalah serangkaian langkah logis untuk memecahkan masalah. Struktur data adalah cara data disimpan. Keduanya bekerja sama untuk mengolah informasi secara efisien.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-6 text-center" style="color: #FEE440;">Algoritma Pencarian</h3>
+                        <p class="text-sm sm:text-base text-gray-400 text-center mb-6">Pilihan metode pencarian sangat bergantung pada kondisi data. Sequential Search adalah metode yang sederhana untuk data acak, sementara Binary Search sangat efisien untuk data yang sudah terurut.</p>
+                        <div class="flex flex-col md:flex-row items-center justify-around space-y-8 md:space-y-0 md:space-x-8">
+                            <div class="p-4 rounded-lg flow-box bg-gray-900 text-center">
+                                <h4 class="text-lg sm:text-xl font-semibold mb-2" style="color: #00F5D4;">Sequential Search</h4>
+                                <div class="flex flex-wrap justify-center items-center gap-2 text-sm">
+                                    <span class="p-2 bg-purple-500 rounded-lg">Data A</span>
+                                    <span class="p-2 bg-yellow-400 rounded-lg">Data B</span>
+                                    <span class="p-2 bg-pink-500 rounded-lg">Data C</span>
+                                    <span class="p-2 bg-teal-400 rounded-lg">Data D</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2">Mengecek satu per satu dari awal.</p>
+                            </div>
+                            <div class="text-xl sm:text-2xl text-purple-500 hidden md:block">↔️</div>
+                            <div class="p-4 rounded-lg flow-box bg-gray-900 text-center">
+                                <h4 class="text-lg sm:text-xl font-semibold mb-2" style="color: #00F5D4;">Binary Search</h4>
+                                <div class="flex flex-wrap justify-center items-center gap-2 text-sm">
+                                    <span class="p-2 bg-purple-500 rounded-lg">Data A</span>
+                                    <span class="p-2 bg-yellow-400 rounded-lg">Data B</span>
+                                    <span class="p-2 bg-pink-500 rounded-lg">Data C</span>
+                                    <span class="p-2 bg-teal-400 rounded-lg">Data D</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2">Hanya bekerja pada data terurut.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-6 text-center" style="color: #FEE440;">Struktur Data Dasar</h3>
+                        <p class="text-sm sm:text-base text-gray-400 text-center mb-6">Cara kita menyimpan data memengaruhi cara kita mengaksesnya. Array menawarkan akses cepat melalui indeks, sementara Linked List menawarkan fleksibilitas ukuran yang dinamis.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-lg flow-box bg-gray-900">
+                                <h4 class="text-lg sm:text-xl font-semibold mb-2" style="color: #00F5D4;">Array</h4>
+                                <p class="text-xs text-gray-400 mb-2">Lokasi memori berdekatan, akses via indeks. Ukuran statis.</p>
+                                <div class="flex justify-center items-center gap-1 text-sm">
+                                    <div class="bg-purple-500 p-2 rounded-lg">0</div>
+                                    <div class="bg-purple-500 p-2 rounded-lg">1</div>
+                                    <div class="bg-purple-500 p-2 rounded-lg">2</div>
+                                    <div class="bg-purple-500 p-2 rounded-lg">3</div>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-lg flow-box bg-gray-900">
+                                <h4 class="text-lg sm:text-xl font-semibold mb-2" style="color: #00F5D4;">Linked List</h4>
+                                <p class="text-xs text-gray-400 mb-2">Elemen terhubung dengan pointer. Ukuran dinamis.</p>
+                                <div class="flex justify-center items-center">
+                                    <div class="p-2 bg-pink-500 rounded-lg">Data</div>
+                                    <div class="text-xl mx-1 text-pink-500">→</div>
+                                    <div class="p-2 bg-pink-500 rounded-lg">Data</div>
+                                    <div class="text-xl mx-1 text-pink-500">→</div>
+                                    <div class="p-2 bg-pink-500 rounded-lg">Data</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                           <div class="p-4 rounded-lg flow-box bg-gray-900">
+                                <h4 class="text-lg sm:text-xl font-semibold mb-2" style="color: #00F5D4;">Stack (LIFO) 📦</h4>
+                                <p class="text-xs text-gray-400 mb-2">Last-In, First-Out. Seperti tumpukan piring yang diambil dari atas.</p>
+                                <div class="flex flex-col items-center">
+                                     <div class="bg-yellow-400 w-16 h-8 rounded-t-lg text-black text-center font-bold">Pop</div>
+                                     <div class="bg-teal-400 w-16 h-8 text-black text-center">Data 2</div>
+                                     <div class="bg-purple-500 w-16 h-8 rounded-b-lg text-black text-center">Data 1</div>
+                                </div>
+                            </div>
+                           <div class="p-4 rounded-lg flow-box bg-gray-900">
+                                <h4 class="text-lg sm:text-xl font-semibold mb-2" style="color: #00F5D4;">Queue (FIFO) 🚶</h4>
+                                <p class="text-xs text-gray-400 mb-2">First-In, First-Out. Seperti antrean kasir yang dilayani dari depan.</p>
+                                <div class="flex items-center">
+                                    <div class="bg-purple-500 p-2 rounded-lg text-black text-center">1</div>
+                                    <div class="bg-teal-400 p-2 rounded-lg text-black text-center">2</div>
+                                    <div class="bg-yellow-400 p-2 rounded-lg text-black text-center">3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 text-center" style="color: #FEE440;">Contoh Pseudocode: Menemukan Nilai Tertinggi</h3>
+                    <p class="text-sm sm:text-base text-gray-400 text-center mb-6 max-w-3xl mx-auto">Pseudocode adalah cara menulis logika program menggunakan bahasa yang mirip bahasa manusia, yang membantu kita merancang alur sebelum menuliskannya dalam kode. Kode ini menunjukkan cara menemukan nilai tertinggi dalam sebuah daftar.</p>
+                    <pre class="bg-gray-900 text-gray-400 p-4 rounded-lg overflow-x-auto text-sm md:text-base">
+PROGRAM CariNilaiTertinggi
+  // Input: sebuah daftar angka
+  INPUT: daftarNilai
+  // Asumsikan nilai pertama adalah yang tertinggi untuk sementara
+  SET nilaiTertinggi = daftarNilai[0]
+  
+  // Lakukan perulangan untuk setiap nilai dalam daftar
+  FOR setiap nilai DALAM daftarNilai:
+    
+    // Bandingkan nilai saat ini dengan nilai tertinggi yang sudah disimpan
+    IF nilai > nilaiTertinggi THEN
+      // Jika nilai saat ini lebih tinggi, update nilaiTertinggi
+      SET nilaiTertinggi = nilai
+    END IF
+  END FOR
+  
+  // Output: tampilkan hasil akhir
+  OUTPUT: nilaiTertinggi
+END PROGRAM
+                    </pre>
+                </div>
+            </section>
+
+            <section id="architecture" class="mb-16 md:mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style="color: #9B5DE5;">Bagian 3: Arsitektur Komputer & Sistem Operasi</h2>
+                    <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">Di balik setiap klik dan input, ada arsitektur dan manajer yang memastikan semuanya berjalan lancar. Memahami fondasi ini adalah kunci untuk menjadi pengembang yang lebih baik.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 text-center" style="color: #FEE440;">Arsitektur Von Neumann & Siklus Instruksi IPO</h3>
+                        <p class="text-sm sm:text-base text-gray-400 text-center mb-6">Arsitektur ini mendasari hampir semua komputer modern. Prosesnya melibatkan siklus instruksi (Fetch-Decode-Execute) yang mengolah data dari input menjadi output.</p>
+                        
+                        <div class="relative flex flex-col items-center p-4 rounded-lg bg-gray-900">
+                            <div class="grid grid-cols-3 items-start w-full relative">
+                                <div class="text-center">
+                                    <div class="font-bold text-lg sm:text-xl text-purple-500">Input</div>
+                                    <p class="text-xs text-gray-400 mb-2">Perangkat masukan (mis. Keyboard).</p>
+                                    <div class="text-4xl">⌨️</div>
+                                </div>
+                                <div class="col-span-1 text-center mt-2">
+                                    <div class="text-center font-bold text-lg sm:text-xl text-yellow-400">Memory</div>
+                                    <p class="text-xs text-gray-400 mb-2">Penyimpanan program dan data sementara.</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="font-bold text-lg sm:text-xl text-purple-500">Output</div>
+                                    <p class="text-xs text-gray-400 mb-2">Perangkat keluaran (mis. Monitor).</p>
+                                    <div class="text-4xl">🖥️</div>
+                                </div>
+                            </div>
+                            
+                            <div class="relative w-40 p-4 bg-teal-500 text-black rounded-lg text-center font-black my-8">
+                                <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-1 h-12 bg-yellow-400 flex items-end justify-center">
+                                    <span class="text-xs text-yellow-400 -mb-5">Bus</span>
+                                </div>
+                                <div class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-1 h-12 bg-yellow-400 flex items-start justify-center">
+                                    <span class="text-xs text-yellow-400 -mt-5">Bus</span>
+                                </div>
+                                CPU
+                                <p class="text-xs font-normal mt-1">Unit Pengendali (CU) & Unit Aritmatika Logika (ALU)</p>
+                            </div>
+                            
+                            <div class="w-full text-center mt-4">
+                                <h4 class="text-lg sm:text-xl font-bold mb-2" style="color: #00F5D4;">Siklus Instruksi</h4>
+                                <p class="text-sm text-gray-400 mb-4 max-w-3xl mx-auto">Proses dasar yang dilakukan CPU untuk mengeksekusi setiap perintah.</p>
+                                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-sm">
+                                    <div class="p-2 bg-purple-500 rounded-lg text-center">
+                                        <b>1. Ambil (Fetch)</b>
+                                        <p class="text-xs mt-1">Mengambil instruksi dari memori.</p>
+                                    </div>
+                                    <div class="text-2xl text-pink-500 md:rotate-0 rotate-90">➡️</div>
+                                    <div class="p-2 bg-fuchsia-500 rounded-lg text-center">
+                                        <b>2. Terjemahkan (Decode)</b>
+                                        <p class="text-xs mt-1">Menerjemahkan instruksi untuk CPU.</p>
+                                    </div>
+                                    <div class="text-2xl text-pink-500 md:rotate-0 rotate-90">➡️</div>
+                                    <div class="p-2 bg-indigo-500 rounded-lg text-center">
+                                        <b>3. Eksekusi (Execute)</b>
+                                        <p class="text-xs mt-1">Menjalankan operasi yang diminta.</p>
+                                    </div>
+                                    <div class="text-2xl text-pink-500 md:rotate-0 rotate-90">➡️</div>
+                                    <div class="p-2 bg-cyan-500 rounded-lg text-center">
+                                        <b>4. Simpan (Store)</b>
+                                        <p class="text-xs mt-1">Menyimpan hasil kembali ke memori.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 md:p-8 flex flex-col">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-4 text-center" style="color: #FEE440;">Peran Manajer Utama: Sistem Operasi</h3>
+                        <p class="text-sm sm:text-base text-gray-400 text-center mb-6">OS bertindak sebagai jembatan antara pengguna dan perangkat keras, mengelola semua sumber daya untuk memastikan efisiensi dan stabilitas. Grafik ini menyoroti berbagai fungsi penting yang dikelola oleh OS.</p>
+                        <div class="chart-legend-container flex-grow">
+                            <div class="chart-container w-3/4 h-full">
+                                <canvas id="osFunctionsChart"></canvas>
+                            </div>
+                            <div id="os-legend" class="flex flex-col justify-center text-sm ml-4 space-y-2 w-1/4"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="glosarium" class="mb-16 md:mb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2" style="color: #F15BB5;">Glosarium</h2>
+                    <p class="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">Kumpulan istilah penting yang digunakan dalam infografis ini.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">Algoritma</h4>
+                        <p class="text-sm text-gray-400">Serangkaian langkah logis dan terstruktur untuk menyelesaikan suatu masalah.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">Struktur Data</h4>
+                        <p class="text-sm text-gray-400">Cara menyimpan, mengatur, dan mengelola data di dalam komputer agar dapat digunakan secara efisien.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">Pseudocode</h4>
+                        <p class="text-sm text-gray-400">Cara menuliskan logika sebuah program menggunakan bahasa yang mirip bahasa manusia, sebagai rancangan sebelum menulis kode.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">Sistem Operasi (OS)</h4>
+                        <p class="text-sm text-gray-400">Perangkat lunak inti yang mengelola semua sumber daya perangkat keras dan perangkat lunak di komputer.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">CPU</h4>
+                        <p class="text-sm text-gray-400">Central Processing Unit, otak dari komputer yang mengeksekusi instruksi program.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">ALU</h4>
+                        <p class="text-sm text-gray-400">Arithmetic Logic Unit. Bagian dari CPU yang melakukan operasi matematika dan logika.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">CU</h4>
+                        <p class="text-sm text-gray-400">Control Unit. Bagian dari CPU yang mengarahkan aliran data dan instruksi.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">RAM</h4>
+                        <p class="text-sm text-gray-400">Random Access Memory, memori utama yang berfungsi sebagai penyimpanan data dan instruksi sementara.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">LIFO</h4>
+                        <p class="text-sm text-gray-400">Last-In, First-Out. Prinsip struktur data Stack, di mana data terakhir yang masuk adalah yang pertama keluar.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+                        <h4 class="text-lg font-bold mb-2" style="color: #00F5D4;">FIFO</h4>
+                        <p class="text-sm text-gray-400">First-In, First-Out. Prinsip struktur data Queue, di mana data pertama yang masuk adalah yang pertama keluar.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 < maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const dataQualityCtx = document.getElementById('dataQualityChart').getContext('2d');
+        new Chart(dataQualityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Biru', 'Merah', 'Kuning', 'Hijau', 'Bhiru', 'Merh'],
+                datasets: [{
+                    label: 'Sebelum Standardisasi',
+                    data: [10, 8, 5, 6, 2, 1],
+                    backgroundColor: '#F15BB5',
+                    borderColor: '#F15BB5',
+                    borderWidth: 1
+                }, {
+                    label: 'Setelah Standardisasi',
+                    data: [12, 9, 5, 6, 0, 0],
+                    backgroundColor: '#00F5D4',
+                    borderColor: '#00F5D4',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#e5e7eb'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#9ca3af'
+                        },
+                        grid: {
+                            color: '#4b5563'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#9ca3af'
+                        },
+                        grid: {
+                            color: '#4b5563'
+                        }
+                    }
+                }
+            }
+        });
+
+        const osFunctionsLabels = [
+            'Manajemen Proses',
+            'Manajemen Memori',
+            'Manajemen File',
+            'Manajemen Perangkat I/O'
+        ];
+        const osFunctionsColors = [
+            '#9B5DE5',
+            '#F15BB5',
+            '#FEE440',
+            '#00F5D4'
+        ];
+        
+        const osFunctionsCtx = document.getElementById('osFunctionsChart').getContext('2d');
+        new Chart(osFunctionsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: osFunctionsLabels,
+                datasets: [{
+                    label: 'Fungsi Utama OS',
+                    data: [30, 25, 25, 20],
+                    backgroundColor: osFunctionsColors,
+                    borderColor: '#1f2937',
+                    borderWidth: 3,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false // Sembunyikan legenda bawaan Chart.js
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+        
+        const osLegendContainer = document.getElementById('os-legend');
+        osFunctionsLabels.forEach((label, index) => {
+            const legendItem = document.createElement('div');
+            legendItem.className = 'flex items-center space-x-2';
+            legendItem.innerHTML = `
+                <div class="w-4 h-4 rounded-full" style="background-color: ${osFunctionsColors[index]}"></div>
+                <span class="text-gray-300 text-xs sm:text-sm">${label}</span>
+            `;
+            osLegendContainer.appendChild(legendItem);
+        });
+
+    </script>
+</body>
+</html>
